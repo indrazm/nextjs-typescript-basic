@@ -8,6 +8,7 @@
         "@typescript-eslint/space-before-function-paren": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "no-console": "warn",
+        "@typescript-eslint/consistent-type-imports": "off",
         "prefer-destructuring": [
           "error",
           {
