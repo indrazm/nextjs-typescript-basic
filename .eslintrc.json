@@ -1,3 +1,30 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "standard"],
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+      "extends": "standard-with-typescript",
+      "rules": {
+        "@typescript-eslint/space-before-function-paren": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "no-console": "warn",
+        "prefer-destructuring": [
+          "error",
+          {
+            "VariableDeclarator": {
+              "array": false,
+              "object": true
+            },
+            "AssignmentExpression": {
+              "array": true,
+              "object": false
+            }
+          },
+          {
+            "enforceForRenamedProperties": false
+          }
+        ]
+      }
+    }
+  ]
 }
