@@ -4,8 +4,8 @@ This is a basic boilerplate for Nextjs projects. It's includes:
 
 - [x] Nextjs
 - [x] Typescript
-- [x] Eslint
+- [x] Eslint (Eslint Javascript Standart and with Typescript)
 - [x] Prettier
-- [x] Husky
-- [x] Next Auth
+- [x] Husky (pre-commit - Lint and Check Build)
+- [x] Next Auth (Credentials Provider)
 - [x] Prisma
