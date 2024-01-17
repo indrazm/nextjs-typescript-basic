@@ -9,6 +9,7 @@
         "@typescript-eslint/explicit-function-return-type": "off",
         "no-console": "warn",
         "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/non-nullable-type-assertion-style": "off",
         "prefer-destructuring": [
           "error",
           {
