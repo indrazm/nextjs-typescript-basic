@@ -7,7 +7,7 @@ This is a basic boilerplate for Nextjs projects. It's includes:
 - [x] Eslint (Eslint Javascript Standart and with Typescript)
 - [x] Prettier
 - [x] Husky (pre-commit - Lint and Check Build)
-- [x] Next Auth V5 (Credentials Provider)
+- [x] Next Auth V5 (Credentials Provider and Google)
 - [x] Prisma
 
 ### Environment Variables
