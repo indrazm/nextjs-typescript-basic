@@ -1,8 +1,9 @@
 import prisma from '@/prisma/utils'
 import NextAuth from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
-import GitHub from 'next-auth/providers/github'
+import Google from 'next-auth/providers/google'
 import { verify } from 'argon2'
+import { generateId } from '@/lib/generateId'
 
 export const {
   handlers: { GET, POST },
@@ -36,10 +37,34 @@ export const {
         }
       }
     }),
-    GitHub
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
+    })
   ],
   callbacks: {
-    signIn: async () => true,
+    signIn: async ({ user }) => {
+      const findUser = await prisma.user.findUnique({
+        where: {
+          email: user.email ?? undefined
+        }
+      })
+
+      if (findUser === null) {
+        const id = generateId()
+
+        await prisma.user.create({
+          data: {
+            id,
+            email: user.email ?? '',
+            name: user.name ?? undefined,
+            image: user.image ?? undefined
+          }
+        })
+      }
+
+      return true
+    },
     session: async ({ session }) => {
       const findUser = await prisma.user.findUnique({
         where: {
