@@ -20,10 +20,14 @@ export default function Page() {
   }
 
   async function handleLoginWithGoogle() {
-    await signIn('google', {
-      redirect: true,
-      callbackUrl: '/dashboard'
-    })
+    try {
+      await signIn('google', {
+        redirect: true,
+        callbackUrl: '/dashboard'
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
